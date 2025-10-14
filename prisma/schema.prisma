@@ -1,0 +1,279 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  CLUB_ADMIN
+  ASSOC_ADMIN
+  SUPERADMIN
+}
+
+enum Category {
+  MEN
+  WOMEN
+  MIXED
+  JUNIOR
+}
+
+enum TournamentLevel {
+  LOCAL
+  REGIONAL
+  NATIONAL
+  INTERNATIONAL
+}
+
+enum TourStatus {
+  UPCOMING
+  ONGOING
+  COMPLETED
+}
+
+enum Round {
+  R128
+  R64
+  R32
+  R16
+  QF
+  SF
+  F
+  W
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String?
+  role         Role     @default(USER)
+  playerId     String?  @unique
+  player       Player?  @relation(fields: [playerId], references: [id])
+  clubId       String?
+  club         Club?    @relation(fields: [clubId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  membershipOrders MembershipOrder[]
+  auditLogs        AuditLog[]
+
+  @@map("users")
+}
+
+model Player {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  firstName String
+  lastName  String
+  fullName  String   @unique
+  photoUrl  String?
+  birthDate DateTime?
+  regionId  String
+  region    Region   @relation(fields: [regionId], references: [id])
+  category  Category
+  clubId    String?
+  club      Club?    @relation(fields: [clubId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  rankings Ranking[]
+  results  MatchResult[]
+  user     User?
+
+  @@map("players")
+}
+
+model Region {
+  id         String       @id @default(cuid())
+  name       String       @unique
+  code       String       @unique
+  players    Player[]
+  clubs      Club[]
+  tournaments Tournament[]
+
+  @@map("regions")
+}
+
+model Club {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  name      String
+  email     String?
+  phone     String?
+  address   String?
+  city      String?
+  regionId  String
+  region    Region   @relation(fields: [regionId], references: [id])
+  courts    Int      @default(0)
+  createdAt DateTime @default(now())
+
+  // Relations
+  members Player[]
+  tournaments Tournament[]
+  admins  User[]
+
+  @@map("clubs")
+}
+
+model Tournament {
+  id            String          @id @default(cuid())
+  slug          String          @unique
+  name          String
+  startDate     DateTime
+  endDate       DateTime
+  regionId      String
+  region        Region          @relation(fields: [regionId], references: [id])
+  level         TournamentLevel
+  category      Category
+  clubId        String?
+  club          Club?           @relation(fields: [clubId], references: [id])
+  status        TourStatus      @default(UPCOMING)
+  createdAt     DateTime        @default(now())
+
+  // Relations
+  results     MatchResult[]
+  pointsTable PointsTable? @relation(fields: [pointsTableId], references: [id])
+  pointsTableId String?
+
+  @@map("tournaments")
+}
+
+model MatchResult {
+  id          String    @id @default(cuid())
+  tournamentId String
+  tournament  Tournament @relation(fields: [tournamentId], references: [id])
+  round       Round
+  playerId    String
+  player      Player    @relation(fields: [playerId], references: [id])
+  opponent    String
+  won         Boolean
+  score       String?
+  pointsEarned Int      @default(0)
+  playedAt    DateTime
+  verified    Boolean   @default(false)
+  verifierId  String?
+  verifiedAt  DateTime?
+  status      String    @default("COMPLETED")
+  notes       String?
+  createdAt   DateTime  @default(now())
+
+  @@map("match_results")
+}
+
+model Ranking {
+  id       String   @id @default(cuid())
+  playerId String
+  player   Player   @relation(fields: [playerId], references: [id])
+  season   Int
+  category Category
+  points   Int      @default(0)
+  position Int?
+  delta    Int?
+  asOf     DateTime @default(now())
+
+  @@index([season, category, points])
+  @@map("rankings")
+}
+
+model RankingConfig {
+  id                    String   @id @default(cuid())
+  season                Int
+  rollingWeeks          Int      @default(52)
+  bestN                 Int      @default(8)
+  decayMode             String   @default("exponential")
+  decayLambda           Float    @default(0.015)
+  levelMultipliers      Json
+  categoryMultipliers   Json?
+  opponentStrengthElo   Boolean  @default(false)
+  eloK                  Int      @default(16)
+  inactivityWeeks       Int?
+  woPenalty            Int      @default(0)
+  retiredPenalty       Int      @default(0)
+  dqPenalty            Int      @default(0)
+  tiebreakers          String[] @default(["TOTAL", "BEST", "RECENT", "H2H"])
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  @@map("ranking_configs")
+}
+
+model PointsTable {
+  id       String          @id @default(cuid())
+  level    TournamentLevel
+  category Category
+  r128     Int             @default(0)
+  r64      Int             @default(1)
+  r32      Int             @default(5)
+  r16      Int             @default(10)
+  qf       Int             @default(20)
+  sf       Int             @default(40)
+  f        Int             @default(70)
+  w        Int             @default(100)
+
+  // Relations
+  tournaments Tournament[]
+
+  @@map("points_tables")
+}
+
+model NewsPost {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  excerpt     String
+  coverUrl    String?
+  content     String
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("news_posts")
+}
+
+model MembershipPlan {
+  id       String @id @default(cuid())
+  name     String @unique
+  priceIdr Int
+  benefits String[]
+  isActive Boolean @default(true)
+
+  // Relations
+  orders MembershipOrder[]
+
+  @@map("membership_plans")
+}
+
+model MembershipOrder {
+  id     String         @id @default(cuid())
+  userId String
+  user   User           @relation(fields: [userId], references: [id])
+  planId String
+  plan   MembershipPlan @relation(fields: [planId], references: [id])
+  status String         @default("pending")
+  createdAt DateTime    @default(now())
+
+  @@map("membership_orders")
+}
+
+model AuditLog {
+  id       String   @id @default(cuid())
+  actorId  String?
+  actor    User?    @relation(fields: [actorId], references: [id])
+  entity   String
+  entityId String?
+  action   String
+  diff     Json?
+  ip       String?
+  createdAt DateTime @default(now())
+
+  @@map("audit_logs")
+}

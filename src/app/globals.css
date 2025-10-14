@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* PBPI Actual Brand Colors - Based on their website */
+  --brand-primary: 220 100% 50%; /* Blue primary */
+  --brand-secondary: 220 100% 40%; /* Darker blue */
+  --brand-accent: 220 100% 60%; /* Lighter blue */
+  --brand-success: 142 76% 36%; /* Green for success */
+  --brand-warning: 38 92% 50%; /* Orange for warnings */
+  
+  /* Neutral colors */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+  --primary: 220 100% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 20% 95%;
+  --secondary-foreground: 0 0% 10%;
+  --muted: 220 20% 95%;
+  --muted-foreground: 0 0% 45%;
+  --accent: 220 100% 60%;
+  --accent-foreground: 0 0% 10%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 20% 90%;
+  --input: 220 20% 90%;
+  --ring: 220 100% 50%;
+  --chart-1: 220 100% 50%;
+  --chart-2: 142 76% 36%;
+  --chart-3: 38 92% 50%;
+  --chart-4: 280 100% 70%;
+  --chart-5: 0 84% 60%;
+}
+
+/* Disabled dark mode - keeping site in modern blue/white theme */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 90%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 90%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 90%;
+    --primary: 220 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 220 100% 60%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 220 100% 50%;
+  }
+} */
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Inter", system-ui, sans-serif;
+  font-feature-settings: "cv11", "ss01";
+  font-variation-settings: "opsz" 32;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--brand-primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--brand-primary) / 0.8);
+}
+
+/* Focus styles */
+.focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Typography */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Card styles - PBPI style */
+.card {
+  @apply rounded-lg border border-gray-200 bg-white p-4 shadow-sm;
+}
+
+.card-hover {
+  @apply transition-all duration-200 hover:shadow-md hover:-translate-y-1;
+}
+
+/* Button styles - PBPI style */
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply border border-gray-300 bg-gray-50 text-gray-900 hover:bg-gray-100;
+}
+
+.btn-ghost {
+  @apply hover:bg-gray-100 hover:text-gray-900;
+}
+
+/* Table styles - PBPI style */
+.table-zebra tbody tr:nth-child(even) {
+  @apply bg-gray-50;
+}
+
+/* Podium colors - Updated to match PBPI */
+.podium-gold {
+  @apply bg-gradient-to-br from-yellow-400 to-yellow-500;
+}
+
+.podium-silver {
+  @apply bg-gradient-to-br from-gray-300 to-gray-400;
+}
+
+.podium-bronze {
+  @apply bg-gradient-to-br from-orange-400 to-orange-500;
+}
+
+/* PBPI specific styles */
+.pbpi-header {
+  @apply bg-white border-b border-gray-200;
+}
+
+.pbpi-nav-link {
+  @apply text-gray-700 hover:text-blue-600 transition-colors;
+}
+
+.pbpi-nav-link.active {
+  @apply text-blue-600 font-medium;
+}
+
+.pbpi-button {
+  @apply bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors;
+}
+
+.pbpi-card {
+  @apply bg-white border border-gray-200 rounded-lg shadow-sm;
+}
+
+.pbpi-table {
+  @apply w-full border-collapse;
+}
+
+.pbpi-table th {
+  @apply bg-gray-50 border-b border-gray-200 px-4 py-3 text-left text-sm font-medium text-gray-700;
+}
+
+.pbpi-table td {
+  @apply border-b border-gray-100 px-4 py-3 text-sm text-gray-900;
+}
+
+.pbpi-table tbody tr:hover {
+  @apply bg-gray-50;
+}/* Force refresh */
