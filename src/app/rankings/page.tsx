@@ -806,16 +806,22 @@ export default function RankingsPage() {
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Start your padel journey and compete with Indonesia's best. Participate in official tournaments and begin climbing the official rankings.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg h-auto">
-              📝 Register Now
-            </Button>
-            <Button variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg h-auto">
-              📅 View Tournaments
-            </Button>
-            <Button variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg h-auto">
-              📄 Find Clubs Near You
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href="/membership">
+              <Button size="sm" className="bg-white text-blue-600 hover:bg-blue-50 font-semibold text-sm px-4 py-2">
+                📝 Register Now
+              </Button>
+            </Link>
+            <Link href="/tournaments">
+              <Button size="sm" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold text-sm px-4 py-2 bg-transparent">
+                📅 View Tournaments
+              </Button>
+            </Link>
+            <Link href="/clubs">
+              <Button size="sm" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold text-sm px-4 py-2 bg-transparent">
+                📄 Find Clubs Near You
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

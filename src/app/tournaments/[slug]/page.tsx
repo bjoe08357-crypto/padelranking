@@ -19,7 +19,7 @@ const tournaments: Record<string, any> = {
     participants: "32 teams",
     registered: "28 teams",
     status: "Open for Registration",
-    imageUrl: "/tournaments/sirkuit-indonesia-open-1.jpg",
+    imageUrl: "/tournaments/sirkuit-indonesia-open-1.webp",
     registrationDeadline: "January 10, 2025",
     registrationFee: "Rp 500,000 per team",
     fullDescription: "The Sirkuit Indonesia Open I marks the beginning of the 2025 professional padel season in Indonesia. This tournament brings together the nation's top-ranked players competing for valuable ranking points and substantial prize money. As part of the official PBPI circuit, this event follows international padel standards and regulations.",
@@ -57,7 +57,7 @@ const tournaments: Record<string, any> = {
     participants: "32 teams",
     registered: "21 teams",
     status: "Open for Registration",
-    imageUrl: "/tournaments/sirkuit-indonesia-open-2.jpg",
+    imageUrl: "/tournaments/sirkuit-indonesia-open-2.webp",
     registrationDeadline: "February 7, 2025",
     registrationFee: "Rp 500,000 per team",
     fullDescription: "The second leg of the Sirkuit Indonesia Open takes place in the paradise island of Bali. This tournament continues to attract Indonesia's elite padel athletes competing in world-class facilities. Experience competitive padel in one of the most beautiful locations in Indonesia.",
@@ -95,7 +95,7 @@ const tournaments: Record<string, any> = {
     participants: "32 teams",
     registered: "15 teams",
     status: "Open for Registration",
-    imageUrl: "/tournaments/sirkuit-indonesia-open-3.jpg",
+    imageUrl: "/tournaments/sirkuit-indonesia-open-3.webp",
     registrationDeadline: "March 7, 2025",
     registrationFee: "Rp 500,000 per team",
     fullDescription: "The third tournament in the Sirkuit Indonesia Open series arrives in Surabaya, East Java's largest city. This event continues the tradition of high-level competitive padel, bringing the excitement to Eastern Indonesia and showcasing the growing padel community nationwide.",
@@ -133,7 +133,7 @@ const tournaments: Record<string, any> = {
     participants: "48 teams",
     registered: "35 teams",
     status: "Limited Spots Available",
-    imageUrl: "/tournaments/fip-bronze-jakarta.jpg",
+    imageUrl: "/tournaments/fip-bronze-jakarta.webp",
     registrationDeadline: "March 28, 2025",
     registrationFee: "$200 USD per team",
     fullDescription: "Indonesia's first FIP Bronze tournament represents a historic moment for Indonesian padel. Sanctioned by the International Padel Federation, this event welcomes international players and offers official FIP ranking points. This tournament puts Indonesia on the global padel map and provides local players with invaluable international competition experience.",
@@ -168,8 +168,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function TournamentDetailPage({ params }: { params: { slug: string } }) {
-  const tournament = tournaments[params.slug];
+export default async function TournamentDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const tournament = tournaments[slug];
 
   if (!tournament) {
     return <div>Tournament not found</div>;

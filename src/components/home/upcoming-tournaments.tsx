@@ -14,7 +14,7 @@ const featuredTournament = {
   description: "National circuit tournament featuring Men's and Women's Doubles categories with Bronze and Open levels competing for IDR 150 Million in prizes.",
   prizePool: 150000000,
   participants: 64,
-  coverUrl: "/tournaments/jakarta-open-2025.svg",
+  coverUrl: "/tournaments/sirkuit-indonesia-open-3.webp",
   slug: "sirkuit-indonesia-open-iii-2025"
 };
 

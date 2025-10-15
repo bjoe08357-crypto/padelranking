@@ -17,7 +17,7 @@ const tournaments = [
     prizePool: "Rp 50,000,000",
     participants: "32 teams",
     status: "upcoming",
-    imageUrl: "/tournaments/sirkuit-indonesia-open-1.jpg",
+    imageUrl: "/tournaments/sirkuit-indonesia-open-1.webp",
     featured: true,
     registrationDeadline: "January 10, 2025",
     description: "The first tournament of the 2025 Sirkuit Indonesia Open series, featuring top Indonesian padel players competing for ranking points and prizes."
@@ -33,7 +33,7 @@ const tournaments = [
     prizePool: "Rp 50,000,000",
     participants: "32 teams",
     status: "upcoming",
-    imageUrl: "/tournaments/sirkuit-indonesia-open-2.jpg",
+    imageUrl: "/tournaments/sirkuit-indonesia-open-2.webp",
     featured: true,
     registrationDeadline: "February 7, 2025",
     description: "The second leg of the Sirkuit Indonesia Open series takes place in beautiful Bali, bringing together Indonesia's elite padel athletes."
@@ -49,7 +49,7 @@ const tournaments = [
     prizePool: "Rp 50,000,000",
     participants: "32 teams",
     status: "upcoming",
-    imageUrl: "/tournaments/sirkuit-indonesia-open-3.jpg",
+    imageUrl: "/tournaments/sirkuit-indonesia-open-3.webp",
     featured: false,
     registrationDeadline: "March 7, 2025",
     description: "The third tournament in the Sirkuit Indonesia Open series, hosted in East Java's largest city."
@@ -65,7 +65,7 @@ const tournaments = [
     prizePool: "$15,000 USD",
     participants: "48 teams",
     status: "upcoming",
-    imageUrl: "/tournaments/fip-bronze-jakarta.jpg",
+    imageUrl: "/tournaments/fip-bronze-jakarta.webp",
     featured: true,
     registrationDeadline: "March 28, 2025",
     description: "Indonesia's first FIP Bronze tournament, attracting international players and offering valuable ranking points on the global stage."
@@ -277,14 +277,14 @@ export default function TournamentsPage() {
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Join Indonesia's growing padel community and test your skills in official tournaments
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/membership">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 font-semibold text-base px-6">
+              <Button size="sm" className="bg-white text-blue-600 hover:bg-blue-50 font-semibold text-sm px-4 py-2">
                 Become a Member
               </Button>
             </Link>
             <Link href="/about">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-semibold text-base px-6">
+              <Button size="sm" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold text-sm px-4 py-2 bg-transparent">
                 Learn More
               </Button>
             </Link>
