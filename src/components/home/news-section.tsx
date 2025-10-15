@@ -3,43 +3,7 @@ import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, ArrowRight, Clock } from "lucide-react";
-
-const featuredNews = {
-  id: "pbpi-national-championship-2025",
-  title: "PBPI National Championship 2025: Registration Now Open",
-  excerpt: "Join Indonesia's premier padel tournament featuring the best players from across the archipelago. Registration closes March 15th.",
-  imageUrl: "/news/pbpi-championship-2025.svg",
-  publishedAt: "2025-01-15",
-  readTime: "5 min read",
-  category: "Tournament"
-};
-
-const newsItems = [
-  {
-    id: "new-ranking-system",
-    title: "New Ranking System Implementation",
-    excerpt: "PBPI introduces updated ranking algorithm for fairer player evaluation",
-    publishedAt: "2025-01-12",
-    readTime: "3 min read",
-    category: "Announcement"
-  },
-  {
-    id: "jakarta-open-results",
-    title: "Jakarta Open 2025: Final Results",
-    excerpt: "Zar Lasahido claims victory in Jakarta Open with impressive performance",
-    publishedAt: "2025-01-10",
-    readTime: "4 min read",
-    category: "Results"
-  },
-  {
-    id: "youth-development-program",
-    title: "Youth Development Program Launch",
-    excerpt: "New initiative to nurture young padel talent across Indonesia",
-    publishedAt: "2025-01-08",
-    readTime: "6 min read",
-    category: "Development"
-  }
-];
+import { getRecentArticles } from "@/lib/data/news-articles";
 
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('en-US', {
@@ -50,6 +14,10 @@ const formatDate = (dateString: string) => {
 };
 
 export function NewsSection() {
+  const allArticles = getRecentArticles(4);
+  const featuredNews = allArticles[0];
+  const newsItems = allArticles.slice(1);
+  
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -96,9 +64,11 @@ export function NewsSection() {
                 <p className="text-sm text-gray-600 mb-4 leading-relaxed flex-grow">
                   {featuredNews.excerpt}
                 </p>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white w-fit text-sm" size="sm">
-                  Read More
-                  <ArrowRight className="ml-2 h-3.5 w-3.5" />
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white w-fit text-sm" size="sm" asChild>
+                  <Link href={`/news/${featuredNews.id}`}>
+                    Read More
+                    <ArrowRight className="ml-2 h-3.5 w-3.5" />
+                  </Link>
                 </Button>
               </CardContent>
             </Card>

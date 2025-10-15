@@ -6,45 +6,45 @@ import { Calendar, MapPin, Users, Trophy } from "lucide-react";
 import { formatDate, formatCurrency } from "@/lib/utils";
 
 const featuredTournament = {
-  id: "jakarta-open-2025",
-  name: "Jakarta Open Championship 2025",
-  startDate: "2025-03-15",
-  endDate: "2025-03-17",
-  location: "Jakarta International Convention Center",
-  description: "The premier padel tournament featuring Indonesia's top players competing for the championship title.",
-  prizePool: 250000000,
-  participants: 105,
+  id: "sirkuit-indonesia-open-iii-2025",
+  name: "Sirkuit Indonesia Open III - 2025",
+  startDate: "2025-08-28",
+  endDate: "2025-08-31",
+  location: "Graha Padel Club, Surabaya, East Java",
+  description: "National circuit tournament featuring Men's and Women's Doubles categories with Bronze and Open levels competing for IDR 150 Million in prizes.",
+  prizePool: 150000000,
+  participants: 64,
   coverUrl: "/tournaments/jakarta-open-2025.svg",
-  slug: "jakarta-open-championship-2025"
+  slug: "sirkuit-indonesia-open-iii-2025"
 };
 
 const upcomingTournaments = [
   {
-    id: "manado-regional",
-    name: "Manado Regional Championship",
-    startDate: "2025-02-20",
-    endDate: "2025-02-22",
-    location: "Manado, North Sulawesi",
-    participants: 32,
-    slug: "manado-regional-championship"
+    id: "sirkuit-indonesia-open-2025",
+    name: "Sirkuit Indonesia Open 2025",
+    startDate: "2025-05-22",
+    endDate: "2025-05-25",
+    location: "Padel Pro Kemang, Jakarta Selatan",
+    participants: 64,
+    slug: "sirkuit-indonesia-open-2025"
   },
   {
-    id: "mantap-padel-open",
-    name: "Mantap Padel Open",
-    startDate: "2025-02-28",
-    endDate: "2025-03-02",
-    location: "Bandung, West Java",
+    id: "fip-bronze-jakarta-2025",
+    name: "FIP Bronze Jakarta 2025",
+    startDate: "2025-06-05",
+    endDate: "2025-06-08",
+    location: "Padel Pro Kemang, Jakarta",
     participants: 48,
-    slug: "mantap-padel-open"
+    slug: "fip-bronze-jakarta-2025"
   },
   {
-    id: "bali-beach-championship",
-    name: "Bali Beach Championship",
-    startDate: "2025-03-08",
-    endDate: "2025-03-10",
-    location: "Sanur, Bali",
-    participants: 24,
-    slug: "bali-beach-championship"
+    id: "sirkuit-indonesia-open-ii-2025",
+    name: "Sirkuit Indonesia Open II - 2025",
+    startDate: "2025-07-24",
+    endDate: "2025-07-27",
+    location: "Padel Hill Bandung",
+    participants: 56,
+    slug: "sirkuit-indonesia-open-ii-2025"
   }
 ];
 
@@ -116,9 +116,6 @@ export function UpcomingTournaments() {
                       View Details
                     </Link>
                   </Button>
-                  <Button variant="outline" className="border-gray-300 text-sm" size="sm">
-                    Register Now
-                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -148,8 +145,10 @@ export function UpcomingTournaments() {
                     </div>
                   </div>
 
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-xs h-8">
-                    Register
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-xs h-8" asChild>
+                    <Link href={`/tournaments/${tournament.slug}`}>
+                      View Details
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>

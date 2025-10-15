@@ -11,17 +11,14 @@ const stats = [
 export function HeroSection() {
   return (
     <section 
-      className="relative min-h-[70vh] bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 overflow-hidden" 
+      className="relative min-h-[70vh] bg-blue-600 overflow-hidden" 
     >
-      {/* Decorative Circles */}
-      <div className="absolute top-20 right-10 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl"></div>
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-700"></div>
       
-      {/* Subtle Pattern */}
-      <div className="absolute inset-0" style={{
-        backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
-        backgroundSize: '40px 40px'
-      }}></div>
+      {/* Decorative Circles */}
+      <div className="absolute top-20 right-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-10 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
 
       <div className="relative container mx-auto px-4 py-12 lg:py-16">
         <div className="max-w-4xl mx-auto text-center space-y-6">
@@ -34,7 +31,7 @@ export function HeroSection() {
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
               Official Padel{" "}
-              <span className="text-yellow-300">Rankings</span>{" "}
+              <span className="text-red-500">Rankings</span>{" "}
               of Indonesia
             </h1>
             
