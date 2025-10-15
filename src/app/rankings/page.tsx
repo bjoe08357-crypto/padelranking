@@ -135,25 +135,25 @@ const recentActivity = [
 ];
 
 const biggestMovers = [
-  { name: "Rudi Hartono", change: "+15 ranks", trend: "up", avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Rudi Hartono" },
-  { name: "Maya Sari", change: "+12 ranks", trend: "up", avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Maya Sari" },
-  { name: "Ahmad Fauzil", change: "-9 ranks", trend: "down", avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Ahmad Fauzil" }
+  { name: "Rudi Hartono", change: "+15 ranks", trend: "up", avatar: "/players/rudi-hartono.svg" },
+  { name: "Maya Sari", change: "+12 ranks", trend: "up", avatar: "/players/maya-sari.svg" },
+  { name: "Ahmad Fauzil", change: "-9 ranks", trend: "down", avatar: "/players/ahmad-fauzil.svg" }
 ];
 
 const upcomingMatches = [
   {
-    player1: { name: "Arief Santoso", avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Arief Santoso" },
-    player2: { name: "Bari Deval", avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Bari Deval" },
+    player1: { name: "Arief Santoso", avatar: "/players/arief-santoso.svg" },
+    player2: { name: "Bari Deval", avatar: "/players/bari-deval.svg" },
     date: "Dec 18, 2024"
   },
   {
-    player1: { name: "Rudi Hartono", avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Rudi Hartono" },
-    player2: { name: "Maya Sari", avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Maya Sari" },
+    player1: { name: "Rudi Hartono", avatar: "/players/rudi-hartono.svg" },
+    player2: { name: "Maya Sari", avatar: "/players/maya-sari.svg" },
     date: "Dec 20, 2024"
   },
   {
-    player1: { name: "Rudi Hartono", avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Rudi Hartono" },
-    player2: { name: "Indra Kusuma", avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Indra Kusuma" },
+    player1: { name: "Rudi Hartono", avatar: "/players/rudi-hartono.svg" },
+    player2: { name: "Indra Kusuma", avatar: "/players/indra-kusuma.svg" },
     date: "Dec 22, 2024"
   }
 ];
