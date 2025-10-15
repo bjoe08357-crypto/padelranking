@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Search, Download, Filter, ChevronDown, Trophy, TrendingUp, TrendingDown, Minus, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { getPlayerImageUrl } from "@/lib/utils";
 
 // Mock data - will be replaced with real data from database
 const topPlayers = [
@@ -16,7 +17,7 @@ const topPlayers = [
     lastActive: "Dec 14",
     trend: "up",
     trendValue: "+12",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Arief Santoso"
+    avatar: ""
   },
   {
     rank: 2,
@@ -28,7 +29,7 @@ const topPlayers = [
     lastActive: "Dec 13",
     trend: "down",
     trendValue: "-2",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Bari Deval"
+    avatar: ""
   },
   {
     rank: 3,
@@ -40,7 +41,7 @@ const topPlayers = [
     lastActive: "Dec 12",
     trend: "same",
     trendValue: "0",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Dedi"
+    avatar: ""
   }
 ];
 
@@ -55,7 +56,7 @@ const rankings = [
     lastActive: "Dec 11",
     trend: "up",
     trendValue: "+3",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Rizky Rafi"
+    avatar: ""
   },
   {
     rank: 5,
@@ -67,7 +68,7 @@ const rankings = [
     lastActive: "Dec 16",
     trend: "down",
     trendValue: "-1",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Andi Hartono"
+    avatar: ""
   },
   {
     rank: 6,
@@ -79,7 +80,7 @@ const rankings = [
     lastActive: "Dec 15",
     trend: "up",
     trendValue: "+2",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Indra Kusuma"
+    avatar: ""
   },
   {
     rank: 7,
@@ -91,7 +92,7 @@ const rankings = [
     lastActive: "Dec 9",
     trend: "same",
     trendValue: "0",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Ahmad Faizal"
+    avatar: ""
   },
   {
     rank: 8,
@@ -103,7 +104,7 @@ const rankings = [
     lastActive: "Dec 7",
     trend: "down",
     trendValue: "-3",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Omar"
+    avatar: ""
   }
 ];
 
@@ -212,7 +213,7 @@ export default function RankingsPage() {
                 <div className="relative inline-block mb-4">
                   <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-gray-300 mx-auto">
                     <Image
-                      src={topPlayers[1].avatar}
+                      src={getPlayerImageUrl(topPlayers[1].name, topPlayers[1].avatar)}
                       alt={topPlayers[1].name}
                       width={96}
                       height={96}
@@ -252,7 +253,7 @@ export default function RankingsPage() {
                 <div className="relative inline-block mb-4 mt-4">
                   <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-yellow-400 mx-auto shadow-xl">
                     <Image
-                      src={topPlayers[0].avatar}
+                      src={getPlayerImageUrl(topPlayers[0].name, topPlayers[0].avatar)}
                       alt={topPlayers[0].name}
                       width={112}
                       height={112}
@@ -288,7 +289,7 @@ export default function RankingsPage() {
                 <div className="relative inline-block mb-4">
                   <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-amber-500 mx-auto">
                     <Image
-                      src={topPlayers[2].avatar}
+                      src={getPlayerImageUrl(topPlayers[2].name, topPlayers[2].avatar)}
                       alt={topPlayers[2].name}
                       width={96}
                       height={96}
@@ -446,7 +447,7 @@ export default function RankingsPage() {
                   <div className="col-span-3 flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-200">
                       <Image
-                        src={player.avatar}
+                        src={getPlayerImageUrl(player.name, player.avatar)}
                         alt={player.name}
                         width={48}
                         height={48}
@@ -519,7 +520,7 @@ export default function RankingsPage() {
                   <div className="col-span-3 flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-200">
                       <Image
-                        src={player.avatar}
+                        src={getPlayerImageUrl(player.name, player.avatar)}
                         alt={player.name}
                         width={48}
                         height={48}

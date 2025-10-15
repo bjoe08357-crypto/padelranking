@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { getPlayerImageUrl } from "@/lib/utils";
 import { TrendingUp, TrendingDown, Minus, ArrowRight, Medal } from "lucide-react";
 
 const rankingsPreview = [
@@ -154,7 +155,7 @@ export function RankingsPreview() {
                         <div className="flex items-center space-x-3">
                           <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gray-200 group-hover:ring-2 group-hover:ring-blue-500 transition-all">
                             <Image
-                              src={player.photoUrl}
+                              src={getPlayerImageUrl(player.name, player.photoUrl)}
                               alt={player.name}
                               fill
                               className="object-cover"

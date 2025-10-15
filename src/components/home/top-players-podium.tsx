@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Trophy, TrendingUp } from "lucide-react";
+import { getPlayerImageUrl } from "@/lib/utils";
 import { useState } from "react";
 
 const topPlayers = [
@@ -68,16 +69,11 @@ const getRankIcon = (rank: number) => {
 
 const PlayerAvatar = ({ player }: { player: typeof topPlayers[0] }) => {
   const [imageError, setImageError] = useState(false);
-  
-  // Generate avatar URL from UI Avatars service
-  const generateAvatarUrl = (name: string) => {
-    return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&size=200&background=random&color=fff&bold=true`;
-  };
 
   return (
     <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
       <Image
-        src={imageError ? generateAvatarUrl(player.name) : player.photoUrl}
+        src={imageError ? getPlayerImageUrl(player.name) : getPlayerImageUrl(player.name, player.photoUrl)}
         alt={player.name}
         fill
         className="object-cover"

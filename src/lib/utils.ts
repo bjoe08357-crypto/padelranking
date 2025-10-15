@@ -86,3 +86,14 @@ export function debounce<T extends (...args: any[]) => any>(
     timeout = setTimeout(() => func(...args), wait);
   };
 }
+
+// Generate a consistent player avatar URL.
+// If a specific photoUrl is provided, that is returned; otherwise we fallback to DiceBear initials.
+export function getPlayerImageUrl(playerName: string, photoUrl?: string): string {
+  if (photoUrl && photoUrl.trim().length > 0) return photoUrl;
+
+  const seed = encodeURIComponent(playerName);
+  // DiceBear v7 initials with branded colors; works with next.config remotePatterns
+  // We use SVG for crisp rendering and small size
+  return `https://api.dicebear.com/7.x/initials/svg?seed=${seed}&backgroundType=gradientLinear&backgroundColor=3b82f6,bde0fe&fontFamily=Inter&fontWeight=700&radius=50&scale=90`;
+}
