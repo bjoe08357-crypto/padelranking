@@ -151,81 +151,156 @@ async function main() {
 
   console.log("✅ Created clubs");
 
-  // Create players
+  // Create players - Real PBPI rankings data
   const players = await Promise.all([
     prisma.player.upsert({
-      where: { slug: "arief-santoso" },
+      where: { slug: "zar-lasahido" },
       update: {},
       create: {
-        slug: "arief-santoso",
-        firstName: "Arief",
-        lastName: "Santoso",
-        fullName: "Arief Santoso",
-        photoUrl: "/players/arief-santoso.svg",
+        slug: "zar-lasahido",
+        firstName: "Zar",
+        lastName: "Lasahido",
+        fullName: "Zar Lasahido",
+        photoUrl: "/players/zar-lasahido.webp",
         birthDate: new Date("1990-05-15"),
-        regionId: regions[0].id,
+        regionId: regions[0].id, // Jakarta
         category: "MEN",
         clubId: clubs[0].id
       }
     }),
     prisma.player.upsert({
-      where: { slug: "sari-dewi" },
+      where: { slug: "mario-yohakim" },
       update: {},
       create: {
-        slug: "sari-dewi",
-        firstName: "Sari",
-        lastName: "Dewi",
-        fullName: "Sari Dewi",
-        photoUrl: "/players/sari-dewi.svg",
+        slug: "mario-yohakim",
+        firstName: "Mario",
+        lastName: "Yohakim Prayanto",
+        fullName: "Mario Yohakim Prayanto",
+        photoUrl: "/players/mario-yohakim.webp",
         birthDate: new Date("1992-08-22"),
-        regionId: regions[1].id,
-        category: "WOMEN",
-        clubId: clubs[1].id
-      }
-    }),
-    prisma.player.upsert({
-      where: { slug: "budi-prasetyo" },
-      update: {},
-      create: {
-        slug: "budi-prasetyo",
-        firstName: "Budi",
-        lastName: "Prasetyo",
-        fullName: "Budi Prasetyo",
-        photoUrl: "/players/budi-prasetyo.svg",
-        birthDate: new Date("1988-12-10"),
-        regionId: regions[2].id,
+        regionId: regions[3].id, // Bali
         category: "MEN",
-        clubId: clubs[2].id
-      }
-    }),
-    prisma.player.upsert({
-      where: { slug: "maya-sari" },
-      update: {},
-      create: {
-        slug: "maya-sari",
-        firstName: "Maya",
-        lastName: "Sari",
-        fullName: "Maya Sari",
-        photoUrl: "/players/maya-sari.svg",
-        birthDate: new Date("1995-03-18"),
-        regionId: regions[3].id,
-        category: "WOMEN",
         clubId: clubs[3].id
       }
     }),
     prisma.player.upsert({
-      where: { slug: "david-wijaya" },
+      where: { slug: "singgih-ario" },
       update: {},
       create: {
-        slug: "david-wijaya",
-        firstName: "David",
-        lastName: "Wijaya",
-        fullName: "David Wijaya",
-        photoUrl: "/players/david-wijaya.svg",
-        birthDate: new Date("1991-07-05"),
-        regionId: regions[4].id,
+        slug: "singgih-ario",
+        firstName: "Singgih",
+        lastName: "Ario Suselo",
+        fullName: "Singgih Ario Suselo",
+        photoUrl: "/players/singgih-ario.svg",
+        birthDate: new Date("1988-12-10"),
+        regionId: regions[3].id, // Bali
         category: "MEN",
-        clubId: clubs[4].id
+        clubId: clubs[3].id
+      }
+    }),
+    prisma.player.upsert({
+      where: { slug: "putu-anandana" },
+      update: {},
+      create: {
+        slug: "putu-anandana",
+        firstName: "I Putu",
+        lastName: "Anandana Adi Guna",
+        fullName: "I Putu Anandana Adi Guna",
+        photoUrl: "/players/putu-anandana.webp",
+        birthDate: new Date("1995-03-18"),
+        regionId: regions[3].id, // Bali
+        category: "MEN",
+        clubId: clubs[3].id
+      }
+    }),
+    prisma.player.upsert({
+      where: { slug: "erwan-wiyono" },
+      update: {},
+      create: {
+        slug: "erwan-wiyono",
+        firstName: "Erwan",
+        lastName: "Wiyono",
+        fullName: "Erwan Wiyono",
+        photoUrl: "/players/erwan-wiyono.webp",
+        birthDate: new Date("1991-07-05"),
+        regionId: regions[3].id, // Bali
+        category: "MEN",
+        clubId: clubs[3].id
+      }
+    }),
+    prisma.player.upsert({
+      where: { slug: "eskar-revilla" },
+      update: {},
+      create: {
+        slug: "eskar-revilla",
+        firstName: "Eskar",
+        lastName: "Revilla",
+        fullName: "Eskar Revilla",
+        photoUrl: "/players/eskar-revilla.webp",
+        birthDate: new Date("1993-04-12"),
+        regionId: regions[3].id, // Bali
+        category: "MEN",
+        clubId: clubs[3].id
+      }
+    }),
+    prisma.player.upsert({
+      where: { slug: "sunu-wahyu" },
+      update: {},
+      create: {
+        slug: "sunu-wahyu",
+        firstName: "Sunu",
+        lastName: "Wahyu Trijati",
+        fullName: "Sunu Wahyu Trijati",
+        photoUrl: "/players/sunu-wahyu.webp",
+        birthDate: new Date("1994-09-20"),
+        regionId: regions[3].id, // Bali
+        category: "MEN",
+        clubId: clubs[3].id
+      }
+    }),
+    prisma.player.upsert({
+      where: { slug: "valentinus-wibawa" },
+      update: {},
+      create: {
+        slug: "valentinus-wibawa",
+        firstName: "Valentinus",
+        lastName: "Anak Agung Ngurah Adyasmaka Wibawa",
+        fullName: "Valentinus Anak Agung Ngurah Adyasmaka Wibawa",
+        photoUrl: "/players/valentinus-wibawa.webp",
+        birthDate: new Date("1996-11-08"),
+        regionId: regions[3].id, // Bali
+        category: "MEN",
+        clubId: clubs[3].id
+      }
+    }),
+    prisma.player.upsert({
+      where: { slug: "mike-tanoso" },
+      update: {},
+      create: {
+        slug: "mike-tanoso",
+        firstName: "Mike",
+        lastName: "Tanoso",
+        fullName: "Mike Tanoso",
+        photoUrl: "/players/mike-tanoso.webp",
+        birthDate: new Date("1989-06-14"),
+        regionId: regions[0].id, // Jakarta
+        category: "MEN",
+        clubId: clubs[0].id
+      }
+    }),
+    prisma.player.upsert({
+      where: { slug: "giorgio-soemarno" },
+      update: {},
+      create: {
+        slug: "giorgio-soemarno",
+        firstName: "Giorgio",
+        lastName: "Soemarno",
+        fullName: "Giorgio Soemarno",
+        photoUrl: "/players/giorgio-soemarno.svg",
+        birthDate: new Date("1992-02-28"),
+        regionId: regions[0].id, // Jakarta
+        category: "MEN",
+        clubId: clubs[0].id
       }
     })
   ]);

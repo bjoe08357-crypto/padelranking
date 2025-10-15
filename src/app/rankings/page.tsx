@@ -5,106 +5,130 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getPlayerImageUrl } from "@/lib/utils";
 
-// Mock data - will be replaced with real data from database
+// Real data from PBPI rankings
 const topPlayers = [
   {
     rank: 1,
-    name: "Arief Santoso",
-    region: "Jakarta",
-    club: "PB Djarum",
-    points: 2847,
-    winRate: 68,
-    lastActive: "Dec 14",
-    trend: "up",
-    trendValue: "+12",
-    avatar: "/players/arief-santoso.svg"
+    name: "Zar Lasahido",
+    region: "DKI Jakarta",
+    club: "Jakarta Padel Club",
+    points: 1678,
+    winRate: 89,
+    lastActive: "Oct 15",
+    trend: "same",
+    trendValue: "0",
+    avatar: "/players/zar-lasahido.webp"
   },
   {
     rank: 2,
-    name: "Bari Deval",
-    region: "Banten",
-    club: "Mutiara Club",
-    points: 2635,
-    winRate: 31,
-    lastActive: "Dec 13",
-    trend: "down",
-    trendValue: "-2",
-    avatar: "/players/sari-dewi.svg"
+    name: "Mario Yohakim Prayanto",
+    region: "Bali",
+    club: "Bali Elite Padel",
+    points: 1191.5,
+    winRate: 87,
+    lastActive: "Oct 14",
+    trend: "same",
+    trendValue: "0",
+    avatar: "/players/mario-yohakim.webp"
   },
   {
     rank: 3,
-    name: "Dedi",
-    region: "West Java",
-    club: "Jakarta Club",
-    points: 2521,
-    winRate: 29.2,
-    lastActive: "Dec 12",
+    name: "Singgih Ario Suselo",
+    region: "Bali",
+    club: "Bali Sports Club",
+    points: 907.5,
+    winRate: 85,
+    lastActive: "Oct 13",
     trend: "same",
     trendValue: "0",
-    avatar: "/players/budi-prasetyo.svg"
+    avatar: "/players/singgih-ario.svg"
   }
 ];
 
 const rankings = [
   {
     rank: 4,
-    name: "Rizky Rafi",
-    region: "East Java",
-    club: "Surabaya Elite",
-    points: 2398,
-    winRate: 27.6,
-    lastActive: "Dec 11",
+    name: "I Putu Anandana Adi Guna",
+    region: "Bali",
+    club: "Bali Padel Center",
+    points: 804,
+    winRate: 82,
+    lastActive: "Oct 12",
     trend: "up",
-    trendValue: "+3",
-    avatar: "/players/rizky-rafi.svg"
+    trendValue: "+1",
+    avatar: "/players/putu-anandana.webp"
   },
   {
     rank: 5,
-    name: "Andi Hartono",
-    region: "Jakarta",
-    club: "Capital Padel",
-    points: 2347,
-    winRate: 26.8,
-    lastActive: "Dec 16",
+    name: "Erwan Wiyono",
+    region: "Bali",
+    club: "Bali Champions",
+    points: 684,
+    winRate: 80,
+    lastActive: "Oct 11",
     trend: "down",
     trendValue: "-1",
-    avatar: "/players/andi-hartono.svg"
+    avatar: "/players/erwan-wiyono.webp"
   },
   {
     rank: 6,
-    name: "Indra Kusuma",
+    name: "Eskar Revilla",
     region: "Bali",
-    club: "Island Padel",
-    points: 2196,
-    winRate: 25.1,
-    lastActive: "Dec 15",
-    trend: "up",
-    trendValue: "+2",
-    avatar: "/players/indra-kusuma.svg"
+    club: "Bali Padel Academy",
+    points: 643.5,
+    winRate: 78,
+    lastActive: "Oct 10",
+    trend: "same",
+    trendValue: "0",
+    avatar: "/players/eskar-revilla.webp"
   },
   {
     rank: 7,
-    name: "Ahmad Faizal",
-    region: "Medan",
-    club: "North Star",
-    points: 2024,
-    winRate: 23.2,
-    lastActive: "Dec 9",
-    trend: "same",
-    trendValue: "0",
-    avatar: "/players/ahmad-faizal.svg"
+    name: "Sunu Wahyu Trijati",
+    region: "Bali",
+    club: "Bali Pro Padel",
+    points: 631.5,
+    winRate: 76,
+    lastActive: "Oct 9",
+    trend: "up",
+    trendValue: "+2",
+    avatar: "/players/sunu-wahyu.webp"
   },
   {
     rank: 8,
-    name: "Omar",
-    region: "Central Java",
-    club: "Semarang Club",
-    points: 1987,
-    winRate: 22.8,
-    lastActive: "Dec 7",
+    name: "Valentinus Anak Agung Ngurah Adyasmaka Wibawa",
+    region: "Bali",
+    club: "Bali Elite",
+    points: 619.5,
+    winRate: 74,
+    lastActive: "Oct 8",
     trend: "down",
-    trendValue: "-3",
-    avatar: "/players/omar.svg"
+    trendValue: "-1",
+    avatar: "/players/valentinus-wibawa.webp"
+  },
+  {
+    rank: 9,
+    name: "Mike Tanoso",
+    region: "DKI Jakarta",
+    club: "Jakarta Padel Pro",
+    points: 564,
+    winRate: 72,
+    lastActive: "Oct 7",
+    trend: "up",
+    trendValue: "+1",
+    avatar: "/players/mike-tanoso.webp"
+  },
+  {
+    rank: 10,
+    name: "Giorgio Soemarno",
+    region: "DKI Jakarta",
+    club: "Jakarta Elite Padel",
+    points: 537,
+    winRate: 70,
+    lastActive: "Oct 6",
+    trend: "same",
+    trendValue: "0",
+    avatar: "/players/giorgio-soemarno.svg"
   }
 ];
 
@@ -135,24 +159,24 @@ const recentActivity = [
 ];
 
 const biggestMovers = [
-  { name: "Rudi Hartono", change: "+15 ranks", trend: "up", avatar: "/players/rudi-hartono.svg" },
-  { name: "Maya Sari", change: "+12 ranks", trend: "up", avatar: "/players/maya-sari.svg" },
-  { name: "Ahmad Fauzil", change: "-9 ranks", trend: "down", avatar: "/players/ahmad-fauzil.svg" }
+  { name: "Sunu Wahyu Trijati", change: "+2 ranks", trend: "up", avatar: "/players/sunu-wahyu.webp" },
+  { name: "Mike Tanoso", change: "+1 ranks", trend: "up", avatar: "/players/mike-tanoso.webp" },
+  { name: "Erwan Wiyono", change: "-1 ranks", trend: "down", avatar: "/players/erwan-wiyono.webp" }
 ];
 
 const upcomingMatches = [
   {
-    player1: { name: "Arief Santoso", avatar: "/players/arief-santoso.svg" },
-    player2: { name: "Bari Deval", avatar: "/players/bari-deval.svg" },
-    date: "Dec 18, 2024"
+    player1: { name: "Zar Lasahido", avatar: "/players/zar-lasahido.webp" },
+    player2: { name: "Mario Yohakim Prayanto", avatar: "/players/mario-yohakim.webp" },
+    date: "Oct 20, 2024"
   },
   {
-    player1: { name: "Rudi Hartono", avatar: "/players/rudi-hartono.svg" },
-    player2: { name: "Maya Sari", avatar: "/players/maya-sari.svg" },
-    date: "Dec 20, 2024"
+    player1: { name: "Singgih Ario Suselo", avatar: "/players/singgih-ario.svg" },
+    player2: { name: "I Putu Anandana Adi Guna", avatar: "/players/putu-anandana.webp" },
+    date: "Oct 22, 2024"
   },
   {
-    player1: { name: "Rudi Hartono", avatar: "/players/rudi-hartono.svg" },
+    player1: { name: "Erwan Wiyono", avatar: "/players/erwan-wiyono.webp" },
     player2: { name: "Indra Kusuma", avatar: "/players/indra-kusuma.svg" },
     date: "Dec 22, 2024"
   }

@@ -10,32 +10,32 @@ import { useState } from "react";
 
 const topPlayers = [
   {
-    id: "arief-santoso",
-    name: "Arief Santoso",
-    location: "Jakarta",
-    points: 7847,
+    id: "zar-lasahido",
+    name: "Zar Lasahido",
+    location: "DKI Jakarta",
+    points: 1678,
     winRate: 89,
-    photoUrl: "/players/arief-santoso.svg",
+    photoUrl: "/players/zar-lasahido.webp",
     rank: 1,
     category: "gold"
   },
   {
-    id: "sari-dewi",
-    name: "Sari Dewi",
-    location: "Bandung",
-    points: 7034,
-    winRate: 83,
-    photoUrl: "/players/sari-dewi.svg",
+    id: "mario-yohakim",
+    name: "Mario Yohakim Prayanto",
+    location: "Bali",
+    points: 1191.5,
+    winRate: 87,
+    photoUrl: "/players/mario-yohakim.webp",
     rank: 2,
     category: "silver"
   },
   {
-    id: "budi-prasetyo",
-    name: "Budi Prasetyo",
-    location: "Surabaya",
-    points: 2531,
-    winRate: 81,
-    photoUrl: "/players/budi-prasetyo.svg",
+    id: "singgih-ario",
+    name: "Singgih Ario Suselo",
+    location: "Bali",
+    points: 907.5,
+    winRate: 85,
+    photoUrl: "/players/singgih-ario.svg",
     rank: 3,
     category: "bronze"
   }

@@ -15,7 +15,7 @@ const rankingsPreview = [
     category: "Men",
     points: 1678,
     delta: 0,
-    photoUrl: "/players/zar-lasahido.svg"
+    photoUrl: "/players/zar-lasahido.webp"
   },
   {
     id: "mario-yohakim",
@@ -26,7 +26,7 @@ const rankingsPreview = [
     category: "Men",
     points: 1191.5,
     delta: 1,
-    photoUrl: "/players/mario-yohakim.svg"
+    photoUrl: "/players/mario-yohakim.webp"
   },
   {
     id: "singgih-ario",
@@ -48,7 +48,7 @@ const rankingsPreview = [
     category: "Men",
     points: 804,
     delta: 2,
-    photoUrl: "/players/putu-anandana.svg"
+    photoUrl: "/players/putu-anandana.webp"
   },
   {
     id: "erwan-wiyono",
@@ -59,7 +59,7 @@ const rankingsPreview = [
     category: "Men",
     points: 684,
     delta: 0,
-    photoUrl: "/players/erwan-wiyono.svg"
+    photoUrl: "/players/erwan-wiyono.webp"
   }
 ];
 
