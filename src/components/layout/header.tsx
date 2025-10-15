@@ -48,10 +48,10 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
+      <div className="container mx-auto px-6">
+        <div className="flex h-16 items-center justify-between gap-8">
           {/* Logo and Company Name */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-2.5 flex-shrink-0">
             {/* Logo */}
             <div className="relative h-10 w-10 flex-shrink-0">
               <Image
@@ -71,15 +71,15 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6 flex-1 justify-center">
             {navigation.map((item) => (
               <div key={item.name} className="relative group">
                 <Link
                   href={item.href}
                   className={cn(
-                    "flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-colors",
+                    "flex items-center space-x-1 px-2 py-2 text-sm font-medium transition-colors whitespace-nowrap",
                     pathname === item.href
-                      ? "text-blue-600 font-medium"
+                      ? "text-blue-600 font-semibold"
                       : "text-gray-700 hover:text-blue-600"
                   )}
                   onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.name)}
@@ -114,7 +114,7 @@ export function Header() {
           </nav>
 
           {/* Right side actions */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3 flex-shrink-0">
             {/* Search Bar */}
             <div className="hidden md:flex items-center relative">
               <Search className="absolute left-3 h-4 w-4 text-gray-400" />
