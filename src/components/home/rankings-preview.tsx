@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { getPlayerImageUrl } from "@/lib/utils";
+import { getPlayerImageUrl, generatePlayerSlug } from "@/lib/utils";
 import { TrendingUp, TrendingDown, Minus, ArrowRight, Medal } from "lucide-react";
 
 const rankingsPreview = [
@@ -162,9 +162,9 @@ export function RankingsPreview() {
                             />
                           </div>
                           <div>
-                            <div className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                            <Link href={`/players/${generatePlayerSlug(player.name)}`} className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
                               {player.name}
-                            </div>
+                            </Link>
                             <div className="text-sm text-gray-600">
                               {player.club}
                             </div>

@@ -97,3 +97,7 @@ export function getPlayerImageUrl(playerName: string, photoUrl?: string): string
   // We use SVG for crisp rendering and small size
   return `https://api.dicebear.com/7.x/initials/svg?seed=${seed}&backgroundType=gradientLinear&backgroundColor=3b82f6,bde0fe&fontFamily=Inter&fontWeight=700&radius=50&scale=90`;
 }
+
+export function generatePlayerSlug(name: string): string {
+  return slugify(name);
+}

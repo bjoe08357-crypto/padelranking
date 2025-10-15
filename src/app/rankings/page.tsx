@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Search, Download, Filter, ChevronDown, Trophy, TrendingUp, TrendingDown, Minus, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { getPlayerImageUrl } from "@/lib/utils";
+import { getPlayerImageUrl, generatePlayerSlug } from "@/lib/utils";
 
 // Real data from PBPI rankings
 const topPlayers = [
@@ -248,7 +248,9 @@ export default function RankingsPage() {
                     2
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{topPlayers[1].name}</h3>
+                <Link href={`/players/${generatePlayerSlug(topPlayers[1].name)}`}>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1 hover:text-blue-600 transition-colors">{topPlayers[1].name}</h3>
+                </Link>
                 <p className="text-sm text-gray-600 mb-4">{topPlayers[1].region}</p>
                 <div className="flex justify-center gap-4 mb-4">
                   <div className="text-center">
@@ -260,9 +262,11 @@ export default function RankingsPage() {
                     <div className="text-xs text-gray-500">Win Rate</div>
                   </div>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-gray-400 to-gray-500 hover:from-gray-500 hover:to-gray-600 text-white">
-                  View Profile
-                </Button>
+                <Link href={`/players/${generatePlayerSlug(topPlayers[1].name)}`}>
+                  <Button className="w-full bg-gradient-to-r from-gray-400 to-gray-500 hover:from-gray-500 hover:to-gray-600 text-white">
+                    View Profile
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -288,7 +292,9 @@ export default function RankingsPage() {
                     1
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-1">{topPlayers[0].name}</h3>
+                <Link href={`/players/${generatePlayerSlug(topPlayers[0].name)}`}>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1 hover:text-blue-600 transition-colors">{topPlayers[0].name}</h3>
+                </Link>
                 <p className="text-sm text-gray-700 mb-4">{topPlayers[0].region}</p>
                 <div className="flex justify-center gap-6 mb-4">
                   <div className="text-center">
@@ -300,9 +306,11 @@ export default function RankingsPage() {
                     <div className="text-xs text-gray-600">Win Rate</div>
                   </div>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold">
-                  🏆 View Profile
-                </Button>
+                <Link href={`/players/${generatePlayerSlug(topPlayers[0].name)}`}>
+                  <Button className="w-full bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold">
+                    🏆 View Profile
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -324,7 +332,9 @@ export default function RankingsPage() {
                     3
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{topPlayers[2].name}</h3>
+                <Link href={`/players/${generatePlayerSlug(topPlayers[2].name)}`}>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1 hover:text-blue-600 transition-colors">{topPlayers[2].name}</h3>
+                </Link>
                 <p className="text-sm text-gray-600 mb-4">{topPlayers[2].region}</p>
                 <div className="flex justify-center gap-4 mb-4">
                   <div className="text-center">
@@ -336,9 +346,11 @@ export default function RankingsPage() {
                     <div className="text-xs text-gray-500">Win Rate</div>
                   </div>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-amber-600 to-orange-700 hover:from-amber-700 hover:to-orange-800 text-white">
-                  View Profile
-                </Button>
+                <Link href={`/players/${generatePlayerSlug(topPlayers[2].name)}`}>
+                  <Button className="w-full bg-gradient-to-r from-amber-600 to-orange-700 hover:from-amber-700 hover:to-orange-800 text-white">
+                    View Profile
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           </div>
@@ -479,7 +491,9 @@ export default function RankingsPage() {
                       />
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">{player.name}</div>
+                      <Link href={`/players/${generatePlayerSlug(player.name)}`} className="font-semibold text-gray-900 hover:text-blue-600 transition-colors">
+                        {player.name}
+                      </Link>
                       <div className="text-sm text-gray-500">{player.club}</div>
                     </div>
                   </div>
@@ -509,9 +523,11 @@ export default function RankingsPage() {
 
                   {/* Action */}
                   <div className="col-span-1">
-                    <button className="text-blue-600 hover:text-blue-700">
-                      <ChevronDown className="h-5 w-5 rotate-270" />
-                    </button>
+                    <Link href={`/players/${generatePlayerSlug(player.name)}`}>
+                      <button className="text-blue-600 hover:text-blue-700">
+                        <ChevronDown className="h-5 w-5 rotate-270" />
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -552,7 +568,9 @@ export default function RankingsPage() {
                       />
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">{player.name}</div>
+                      <Link href={`/players/${generatePlayerSlug(player.name)}`} className="font-semibold text-gray-900 hover:text-blue-600 transition-colors">
+                        {player.name}
+                      </Link>
                       <div className="text-sm text-gray-500">{player.club}</div>
                     </div>
                   </div>
@@ -731,7 +749,9 @@ export default function RankingsPage() {
                           />
                         </div>
                         <div>
-                          <div className="font-medium text-gray-900 text-sm">{mover.name}</div>
+                          <Link href={`/players/${generatePlayerSlug(mover.name)}`} className="font-medium text-gray-900 text-sm hover:text-blue-600 transition-colors">
+                            {mover.name}
+                          </Link>
                           <div className="text-xs text-gray-500">Advanced player</div>
                         </div>
                       </div>
@@ -771,11 +791,15 @@ export default function RankingsPage() {
                               className="object-cover"
                             />
                           </div>
-                          <span className="font-medium text-gray-900 text-sm">{match.player1.name}</span>
+                          <Link href={`/players/${generatePlayerSlug(match.player1.name)}`} className="font-medium text-gray-900 text-sm hover:text-blue-600 transition-colors">
+                            {match.player1.name}
+                          </Link>
                         </div>
                         <span className="text-gray-500 font-bold">VS</span>
                         <div className="flex items-center gap-2">
-                          <span className="font-medium text-gray-900 text-sm">{match.player2.name}</span>
+                          <Link href={`/players/${generatePlayerSlug(match.player2.name)}`} className="font-medium text-gray-900 text-sm hover:text-blue-600 transition-colors">
+                            {match.player2.name}
+                          </Link>
                           <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-white">
                             <Image
                               src={match.player2.avatar}
@@ -833,4 +857,3 @@ export const metadata = {
   title: "Official Padel Rankings | Indonesia Padel Rankings",
   description: "View official padel rankings for Indonesia. Track player statistics, tournament results, and climbing the competitive ladder.",
 };
-

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Search, ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PlayerSearch } from "@/components/ui/player-search";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -116,12 +117,10 @@ export function Header() {
           {/* Right side actions */}
           <div className="flex items-center space-x-3 flex-shrink-0">
             {/* Search Bar */}
-            <div className="hidden md:flex items-center relative">
-              <Search className="absolute left-3 h-4 w-4 text-gray-400" />
-              <input
-                type="text"
+            <div className="hidden md:flex items-center">
+              <PlayerSearch 
                 placeholder="Search Players"
-                className="pl-10 pr-4 py-2 w-48 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-48"
               />
             </div>
 
