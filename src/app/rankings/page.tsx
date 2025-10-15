@@ -17,7 +17,7 @@ const topPlayers = [
     lastActive: "Dec 14",
     trend: "up",
     trendValue: "+12",
-    avatar: ""
+    avatar: "/players/arief-santoso.svg"
   },
   {
     rank: 2,
@@ -29,7 +29,7 @@ const topPlayers = [
     lastActive: "Dec 13",
     trend: "down",
     trendValue: "-2",
-    avatar: ""
+    avatar: "/players/sari-dewi.svg"
   },
   {
     rank: 3,
@@ -41,7 +41,7 @@ const topPlayers = [
     lastActive: "Dec 12",
     trend: "same",
     trendValue: "0",
-    avatar: ""
+    avatar: "/players/budi-prasetyo.svg"
   }
 ];
 
@@ -56,7 +56,7 @@ const rankings = [
     lastActive: "Dec 11",
     trend: "up",
     trendValue: "+3",
-    avatar: ""
+    avatar: "/players/rizky-rafi.svg"
   },
   {
     rank: 5,
@@ -68,7 +68,7 @@ const rankings = [
     lastActive: "Dec 16",
     trend: "down",
     trendValue: "-1",
-    avatar: ""
+    avatar: "/players/andi-hartono.svg"
   },
   {
     rank: 6,
@@ -80,7 +80,7 @@ const rankings = [
     lastActive: "Dec 15",
     trend: "up",
     trendValue: "+2",
-    avatar: ""
+    avatar: "/players/indra-kusuma.svg"
   },
   {
     rank: 7,
@@ -92,7 +92,7 @@ const rankings = [
     lastActive: "Dec 9",
     trend: "same",
     trendValue: "0",
-    avatar: ""
+    avatar: "/players/ahmad-faizal.svg"
   },
   {
     rank: 8,
@@ -104,7 +104,7 @@ const rankings = [
     lastActive: "Dec 7",
     trend: "down",
     trendValue: "-3",
-    avatar: ""
+    avatar: "/players/omar.svg"
   }
 ];
 
