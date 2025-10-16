@@ -150,9 +150,11 @@ export function Header() {
               </button>
             </div>
 
-            <Button className="bg-red-600 hover:bg-red-700 text-white font-medium">
-              Club Login
-            </Button>
+            <Link href="/clubs/padel-banten/admin/login">
+              <Button className="bg-red-600 hover:bg-red-700 text-white font-medium">
+                Club Login
+              </Button>
+            </Link>
 
             {/* Mobile menu button */}
             <Button
@@ -237,9 +239,11 @@ export function Header() {
                 </button>
               </div>
               
-              <Button className="mt-4 mx-3 bg-red-600 hover:bg-red-700 text-white font-medium">
-                Club Login
-              </Button>
+              <Link href="/clubs/padel-banten/admin/login" className="mt-4 mx-3 block">
+                <Button className="w-full bg-red-600 hover:bg-red-700 text-white font-medium">
+                  Club Login
+                </Button>
+              </Link>
             </div>
           </div>
         )}

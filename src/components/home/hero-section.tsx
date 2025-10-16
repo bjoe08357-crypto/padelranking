@@ -42,24 +42,30 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-3 pt-2">
-            <Button className="bg-white text-blue-600 hover:bg-blue-50 text-sm px-6 py-5 h-auto shadow-lg rounded-lg font-semibold">
-              <Trophy className="mr-2 h-4 w-4" />
-              View Rankings
-            </Button>
-            <Button 
-              variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 text-sm px-6 py-5 h-auto rounded-lg backdrop-blur-sm bg-white/10"
-            >
-              <User className="mr-2 h-4 w-4" />
-              Join Membership
-            </Button>
-            <Button 
-              variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 text-sm px-6 py-5 h-auto rounded-lg backdrop-blur-sm bg-white/10"
-            >
-              <Calendar className="mr-2 h-4 w-4" />
-              Upcoming
-            </Button>
+            <Link href="/rankings">
+              <Button className="bg-white text-blue-600 hover:bg-blue-50 text-sm px-6 py-5 h-auto shadow-lg rounded-lg font-semibold">
+                <Trophy className="mr-2 h-4 w-4" />
+                View Rankings
+              </Button>
+            </Link>
+            <Link href="/membership">
+              <Button 
+                variant="outline" 
+                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 text-sm px-6 py-5 h-auto rounded-lg backdrop-blur-sm bg-white/10"
+              >
+                <User className="mr-2 h-4 w-4" />
+                Join Membership
+              </Button>
+            </Link>
+            <Link href="/tournaments">
+              <Button 
+                variant="outline" 
+                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 text-sm px-6 py-5 h-auto rounded-lg backdrop-blur-sm bg-white/10"
+              >
+                <Calendar className="mr-2 h-4 w-4" />
+                Upcoming
+              </Button>
+            </Link>
           </div>
 
           {/* Stats Cards */}

@@ -1,0 +1,12 @@
+<svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="medanLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0891B2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0E7490;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <path d="M60,10 L110,60 L60,110 L10,60 Z" fill="url(#medanLogoGradient)"/>
+  <text x="60" y="45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">MPC</text>
+  <text x="60" y="65" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.9)">MEDAN</text>
+  <path d="M60,20 L100,60 L60,100 L20,60 Z" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="makassarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F766E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D9488;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="200" fill="url(#makassarGradient)"/>
+  <text x="200" y="100" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="white">Makassar Padel Club</text>
+  <text x="200" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="rgba(255,255,255,0.8)">Eastern Indonesia Pioneer</text>
+  <path d="M60,30 L80,50 L60,70 L40,50 Z" fill="rgba(255,255,255,0.2)"/>
+  <path d="M340,130 L360,150 L340,170 L320,150 Z" fill="rgba(255,255,255,0.2)"/>
+</svg>

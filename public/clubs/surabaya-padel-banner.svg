@@ -1,0 +1,13 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="surabayaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5B21B6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="200" fill="url(#surabayaGradient)"/>
+  <text x="200" y="100" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="white">Surabaya Padel Academy</text>
+  <text x="200" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="rgba(255,255,255,0.8)">Professional Training Center</text>
+  <ellipse cx="60" cy="50" rx="25" ry="15" fill="rgba(255,255,255,0.2)"/>
+  <ellipse cx="340" cy="150" rx="20" ry="12" fill="rgba(255,255,255,0.2)"/>
+</svg>
