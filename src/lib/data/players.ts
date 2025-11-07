@@ -927,12 +927,13 @@ export class PlayerAPIService {
     throw new Error('API integration not implemented yet');
   }
   
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async fetchPlayerBySlug(_slug: string): Promise<Player | null> {
     // Implementation for fetching single player from PBPI API
     throw new Error('API integration not implemented yet');
   }
   
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
   async fetchPlayerStats(_playerId: string): Promise<any> {
     // Implementation for fetching detailed stats from PBPI API
     throw new Error('API integration not implemented yet');

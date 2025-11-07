@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Trophy, User, Calendar } from "lucide-react";
+import { Trophy, Calendar } from "lucide-react";
 
 const stats = [
   { label: "Active Members", value: "2,847" },
