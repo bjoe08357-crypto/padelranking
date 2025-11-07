@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
     // }
 
     // Get ranking configuration
-    const config = await prisma.rankingConfig.findUnique({
+    const config = await prisma.rankingConfig.findFirst({
       where: { season }
     });
 
