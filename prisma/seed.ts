@@ -458,30 +458,37 @@ async function main() {
   console.log("✅ Created match results");
 
   // Create ranking configuration
-  const rankingConfig = await prisma.rankingConfig.upsert({
-    where: { season: 2024 },
-    update: {},
-    create: {
-      season: 2024,
-      rollingWeeks: 52,
-      bestN: 8,
-      decayMode: "exponential",
-      decayLambda: 0.015,
-      levelMultipliers: {
-        LOCAL: 1.0,
-        REGIONAL: 1.2,
-        NATIONAL: 1.5,
-        INTERNATIONAL: 2.0
-      },
-      categoryMultipliers: {},
-      opponentStrengthElo: false,
-      eloK: 16,
-      woPenalty: 0,
-      retiredPenalty: 0,
-      dqPenalty: 0,
-      tiebreakers: ["TOTAL", "BEST", "RECENT", "H2H"]
-    }
+  const existingConfig = await prisma.rankingConfig.findFirst({
+    where: { season: 2024 }
   });
+
+  const rankingConfig = existingConfig 
+    ? await prisma.rankingConfig.update({
+        where: { id: existingConfig.id },
+        data: {}
+      })
+    : await prisma.rankingConfig.create({
+        data: {
+          season: 2024,
+          rollingWeeks: 52,
+          bestN: 8,
+          decayMode: "exponential",
+          decayLambda: 0.015,
+          levelMultipliers: {
+            LOCAL: 1.0,
+            REGIONAL: 1.2,
+            NATIONAL: 1.5,
+            INTERNATIONAL: 2.0
+          },
+          categoryMultipliers: {},
+          opponentStrengthElo: false,
+          eloK: 16,
+          woPenalty: 0,
+          retiredPenalty: 0,
+          dqPenalty: 0,
+          tiebreakers: ["TOTAL", "BEST", "RECENT", "H2H"]
+        }
+      });
 
   console.log("✅ Created ranking configuration");
 
