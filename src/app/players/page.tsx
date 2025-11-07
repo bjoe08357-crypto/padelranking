@@ -149,9 +149,6 @@ export default function PlayersPage() {
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                         <span className="text-sm text-gray-600">Active</span>
                       </div>
-                      <div className="text-sm text-gray-500">
-                        Joined {new Date(player.joinedDate).getFullYear()}
-                      </div>
                     </div>
                   </div>
                 </Link>

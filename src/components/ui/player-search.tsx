@@ -3,23 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { getAllPlayers } from "@/lib/data/players";
+import { getAllPlayers, Player } from "@/lib/data/players";
 import { getPlayerImageUrl } from "@/lib/utils";
-
-interface Player {
-  id: string;
-  name: string;
-  slug: string;
-  region: string;
-  club: string;
-  rank: number;
-  rating: string;
-  avatar?: string;
-  seasonStats: {
-    matchesWon: number;
-    matchesLost: number;
-  };
-}
 
 interface PlayerSearchProps {
   placeholder?: string;
@@ -174,7 +159,7 @@ export function PlayerSearch({
               </div>
               <div className="flex-shrink-0 text-right">
                 <div className="text-xs text-gray-500">
-                  {player.rating}
+                  {player.rating.toString()}
                 </div>
                 <div className="text-xs text-gray-400">
                   {player.seasonStats.matchesWon}W-{player.seasonStats.matchesLost}L

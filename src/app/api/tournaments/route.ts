@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { Prisma, TournamentLevel, Category, TourStatus } from "@prisma/client";
 
 export async function GET(request: NextRequest) {
   try {
@@ -64,23 +65,18 @@ export async function GET(request: NextRequest) {
     }
 
     // Get tournaments list
-    const where: {
-      status?: string;
-      level?: string;
-      category?: string;
-      regionId?: string;
-    } = {};
+    const where: Prisma.TournamentWhereInput = {};
 
     if (status) {
-      where.status = status;
+      where.status = status as TourStatus;
     }
 
     if (level) {
-      where.level = level;
+      where.level = level as TournamentLevel;
     }
 
     if (category) {
-      where.category = category;
+      where.category = category as Category;
     }
 
     if (region) {

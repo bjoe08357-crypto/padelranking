@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { Category, Prisma } from "@prisma/client";
 
 export async function GET(request: NextRequest) {
   try {
@@ -18,49 +19,31 @@ export async function GET(request: NextRequest) {
     const skip = (page - 1) * limit;
 
     // Build where clause
-    const where: {
-      season: number;
-      player?: {
-        regionId?: string;
-        clubId?: string;
-        OR?: Array<{
-          firstName?: { contains: string; mode: string };
-          lastName?: { contains: string; mode: string };
-          fullName?: { contains: string; mode: string };
-        }>;
-      };
-      category?: string;
-    } = {
+    const where: Prisma.RankingWhereInput = {
       season,
     };
 
+    // Build player filter
+    const playerFilter: Prisma.PlayerWhereInput = {};
     if (region) {
-      where.player = {
-        ...where.player,
-        regionId: region
-      };
+      playerFilter.regionId = region;
+    }
+    if (club) {
+      playerFilter.clubId = club;
+    }
+    if (search) {
+      playerFilter.OR = [
+        { firstName: { contains: search, mode: "insensitive" } },
+        { lastName: { contains: search, mode: "insensitive" } },
+        { fullName: { contains: search, mode: "insensitive" } }
+      ];
+    }
+    if (Object.keys(playerFilter).length > 0) {
+      where.player = playerFilter;
     }
 
     if (category) {
-      where.category = category;
-    }
-
-    if (club) {
-      where.player = {
-        ...where.player,
-        clubId: club
-      };
-    }
-
-    if (search) {
-      where.player = {
-        ...where.player,
-        OR: [
-          { firstName: { contains: search, mode: "insensitive" } },
-          { lastName: { contains: search, mode: "insensitive" } },
-          { fullName: { contains: search, mode: "insensitive" } }
-        ]
-      };
+      where.category = category as Category;
     }
 
     // Get rankings with pagination

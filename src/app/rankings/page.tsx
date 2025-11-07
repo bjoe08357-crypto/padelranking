@@ -676,12 +676,12 @@ export default function RankingsPage() {
                     <div key={idx}>
                       <div className="flex justify-between text-sm mb-1">
                         <span className="text-gray-700">{cat.category}</span>
-                        <span className="font-medium text-gray-900">{cat.players} players</span>
+                        <span className="font-medium text-gray-900">{cat.players ?? 0} players</span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2">
                         <div
                           className={`${cat.color} h-2 rounded-full`}
-                          style={{ width: `${(cat.players / 832) * 100}%` }}
+                          style={{ width: `${((cat.players ?? 0) / 832) * 100}%` }}
                         ></div>
                       </div>
                     </div>

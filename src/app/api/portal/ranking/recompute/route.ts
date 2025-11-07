@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { z } from "zod";
+import { Category } from "@prisma/client";
 
 const recomputeSchema = z.object({
   season: z.number(),
@@ -95,7 +96,14 @@ export async function POST(request: NextRequest) {
       // Create new rankings
       ...rankings.map(ranking =>
         prisma.ranking.create({
-          data: ranking
+          data: {
+            playerId: ranking.playerId,
+            season: ranking.season,
+            category: ranking.category,
+            points: ranking.points,
+            position: ranking.position,
+            asOf: ranking.asOf
+          }
         })
       )
     ]);
@@ -142,7 +150,7 @@ interface RankingConfig {
 interface RankingData {
   playerId: string;
   season: number;
-  category: string;
+  category: Category;
   points: number;
   asOf: Date;
   position?: number;
