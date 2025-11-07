@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { authenticateClubAdmin, getClubById } from "@/lib/data/clubs";
+import { authenticateClubAdmin } from "@/lib/data/clubs";
 
 export default function ClubAdminLoginPage() {
   const [email, setEmail] = useState("");
@@ -34,7 +34,7 @@ export default function ClubAdminLoginPage() {
       } else {
         setError("Invalid email or password");
       }
-    } catch (err) {
+    } catch {
       setError("Login failed. Please try again.");
     } finally {
       setLoading(false);

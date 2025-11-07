@@ -23,7 +23,7 @@ export default function PlayersPage() {
               Professional <span className="text-red-500">Players</span>
             </h1>
             <p className="text-xl text-blue-100 mb-8">
-              Discover Indonesia's top padel talent. From rising stars to seasoned champions, 
+              Discover Indonesia&apos;s top padel talent. From rising stars to seasoned champions, 
               explore the players who are shaping the future of padel in Indonesia.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -215,15 +215,15 @@ export default function PlayersPage() {
               Ready to Join the Rankings?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Become part of Indonesia's premier padel community. Register for tournaments, 
+              Become part of Indonesia&apos;s premier padel community. Register for tournaments, 
               track your progress, and climb the rankings.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
-                href="/membership" 
+                href="/clubs" 
                 className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
               >
-                Join PBPI
+                Find Clubs
               </Link>
               <Link 
                 href="/tournaments" 

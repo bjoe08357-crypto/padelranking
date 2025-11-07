@@ -123,7 +123,7 @@ export function ClubPortalTeaser() {
 
                 <div className="text-center pt-4 border-t border-gray-200">
                   <p className="text-sm text-gray-600 mb-2">
-                    Don't have a club?
+                    Don&apos;t have a club?
                   </p>
                   <Button variant="outline" className="w-full border-gray-300">
                     Register here

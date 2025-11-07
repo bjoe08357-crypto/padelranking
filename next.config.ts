@@ -13,10 +13,7 @@ const nextConfig: NextConfig = {
     ],
   },
   // Optimize for stability
-  experimental: {
-    // Disable problematic features that cause EMFILE errors
-    serverComponentsExternalPackages: [],
-  },
+  serverExternalPackages: [],
   // Reduce file watching overhead
   webpack: (config, { dev }) => {
     if (dev) {

@@ -6,10 +6,25 @@ import Image from "next/image";
 import { getAllPlayers } from "@/lib/data/players";
 import { getPlayerImageUrl } from "@/lib/utils";
 
+interface Player {
+  id: string;
+  name: string;
+  slug: string;
+  region: string;
+  club: string;
+  rank: number;
+  rating: string;
+  avatar?: string;
+  seasonStats: {
+    matchesWon: number;
+    matchesLost: number;
+  };
+}
+
 interface PlayerSearchProps {
   placeholder?: string;
   className?: string;
-  onPlayerSelect?: (player: any) => void;
+  onPlayerSelect?: (player: Player) => void;
 }
 
 export function PlayerSearch({ 
@@ -18,7 +33,7 @@ export function PlayerSearch({
   onPlayerSelect 
 }: PlayerSearchProps) {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState<Player[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -71,7 +86,7 @@ export function PlayerSearch({
     }
   };
 
-  const handlePlayerSelect = (player: any) => {
+  const handlePlayerSelect = (player: Player) => {
     setQuery(player.name);
     setIsOpen(false);
     setSelectedIndex(-1);
@@ -183,7 +198,7 @@ export function PlayerSearch({
       {isOpen && query.length >= 2 && results.length === 0 && (
         <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 p-4">
           <div className="text-center text-gray-500">
-            <div className="text-sm">No players found for "{query}"</div>
+            <div className="text-sm">No players found for &quot;{query}&quot;</div>
             <div className="text-xs mt-1">Try searching by name, region, or club</div>
           </div>
         </div>

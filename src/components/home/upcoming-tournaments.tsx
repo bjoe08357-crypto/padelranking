@@ -61,7 +61,7 @@ export function UpcomingTournaments() {
             Upcoming Tournaments
           </h2>
           <p className="text-base text-gray-600 max-w-2xl mx-auto">
-            Don't miss out on the exciting padel tournaments happening across Indonesia
+            Don&apos;t miss out on the exciting padel tournaments happening across Indonesia
           </p>
         </div>
 

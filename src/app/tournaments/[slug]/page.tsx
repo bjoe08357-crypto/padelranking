@@ -4,8 +4,30 @@ import { Calendar, MapPin, Trophy, Users, Clock, CheckCircle, AlertCircle, Chevr
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
+interface Tournament {
+  id: string;
+  title: string;
+  subtitle: string;
+  date: string;
+  location: string;
+  venue: string;
+  address: string;
+  category: string;
+  prizePool: string;
+  participants: string;
+  registered: string;
+  status: string;
+  imageUrl: string;
+  registrationDeadline: string;
+  registrationFee: string;
+  fullDescription: string;
+  schedule: Array<{ day: string; date: string; events: string }>;
+  prizeBreakdown: Array<{ position: string; prize: string }>;
+  registrationRequirements: string[];
+}
+
 // Tournament detailed data
-const tournaments: Record<string, any> = {
+const tournaments: Record<string, Tournament> = {
   "sirkuit-indonesia-open-1": {
     id: "sirkuit-indonesia-open-1",
     title: "Sirkuit Indonesia Open I",
@@ -262,7 +284,7 @@ export default async function TournamentDetailPage({ params }: { params: Promise
               <CardContent className="p-6">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Tournament Schedule</h2>
                 <div className="space-y-3">
-                  {tournament.schedule.map((item: any, index: number) => (
+                  {tournament.schedule.map((item, index: number) => (
                     <div key={index} className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
                       <Clock className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
                       <div className="flex-1">
@@ -281,7 +303,7 @@ export default async function TournamentDetailPage({ params }: { params: Promise
               <CardContent className="p-6">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Prize Distribution</h2>
                 <div className="space-y-2">
-                  {tournament.prizeBreakdown.map((item: any, index: number) => (
+                  {tournament.prizeBreakdown.map((item, index: number) => (
                     <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                       <div className="flex items-center gap-3">
                         <Trophy className={`h-5 w-5 ${index === 0 ? 'text-yellow-500' : index === 1 ? 'text-gray-400' : index === 2 ? 'text-orange-600' : 'text-blue-600'}`} />

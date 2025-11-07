@@ -12,9 +12,15 @@ export function HeroSection() {
   return (
     <section 
       className="relative min-h-[70vh] bg-blue-600 overflow-hidden" 
+      style={{
+        backgroundImage: 'url(/documents/padel/3.jpeg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
     >
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-700"></div>
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/70 to-blue-700/70"></div>
       
       {/* Decorative Circles */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
@@ -36,7 +42,7 @@ export function HeroSection() {
             </h1>
             
             <p className="text-base md:text-lg text-blue-50 leading-relaxed max-w-2xl mx-auto">
-              Discover Indonesia's top padel players, track rankings, and follow the exciting journey of our national padel community from Banten to nationwide.
+              Discover Indonesia&apos;s top padel players, track rankings, and follow the exciting journey of our national padel community from Banten to nationwide.
             </p>
           </div>
 
@@ -46,15 +52,6 @@ export function HeroSection() {
               <Button className="bg-white text-blue-600 hover:bg-blue-50 text-sm px-6 py-5 h-auto shadow-lg rounded-lg font-semibold">
                 <Trophy className="mr-2 h-4 w-4" />
                 View Rankings
-              </Button>
-            </Link>
-            <Link href="/membership">
-              <Button 
-                variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 text-sm px-6 py-5 h-auto rounded-lg backdrop-blur-sm bg-white/10"
-              >
-                <User className="mr-2 h-4 w-4" />
-                Join Membership
               </Button>
             </Link>
             <Link href="/tournaments">

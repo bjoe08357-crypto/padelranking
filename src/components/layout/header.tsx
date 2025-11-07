@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PlayerSearch } from "@/components/ui/player-search";
 import { useState } from "react";
@@ -10,31 +10,43 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const navigation = [
-  { 
-    name: "Rankings", 
-    href: "/rankings",
-    hasDropdown: true,
-    dropdownItems: [
-      { name: "National Rankings", href: "/rankings/national" },
-      { name: "Regional Rankings", href: "/rankings/regional" },
-      { name: "Player Rankings", href: "/rankings/players" }
-    ]
-  },
-  { 
-    name: "Tournaments", 
-    href: "/tournaments",
-    hasDropdown: true,
-    dropdownItems: [
-      { name: "Upcoming Tournaments", href: "/tournaments/upcoming" },
-      { name: "Past Tournaments", href: "/tournaments/past" },
-      { name: "Tournament Calendar", href: "/tournaments/calendar" }
-    ]
-  },
+  { name: "Rankings", href: "/rankings" },
+  { name: "Tournaments", href: "/tournaments" },
   { name: "Players", href: "/players" },
   { name: "Clubs", href: "/clubs" },
-  { name: "Membership", href: "/membership" },
-  { name: "News", href: "/news" },
-  { name: "About", href: "/about" },
+  { 
+    name: "Development", 
+    href: "/development",
+    hasDropdown: true,
+    dropdownItems: [
+      { name: "Coach Education", href: "/development/coach-education" },
+      { name: "Youth Programs", href: "/development/youth-programs" },
+      { name: "Club Development", href: "/development/club-development" },
+      { name: "Equipment Standards", href: "/development/equipment-standards" }
+    ]
+  },
+  { 
+    name: "News", 
+    href: "/news",
+    hasDropdown: true,
+    dropdownItems: [
+      { name: "Latest News", href: "/news" },
+      { name: "Media", href: "/media" },
+      { name: "Press Releases", href: "/press" }
+    ]
+  },
+  { 
+    name: "About", 
+    href: "/about",
+    hasDropdown: true,
+    dropdownItems: [
+      { name: "About Us", href: "/about" },
+      { name: "Documents", href: "/documents" },
+      { name: "Governance", href: "/governance" },
+      { name: "Reports", href: "/reports" },
+      { name: "Contact", href: "/contact" }
+    ]
+  },
 ];
 
 export function Header() {
@@ -49,8 +61,8 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
-      <div className="container mx-auto px-6">
-        <div className="flex h-16 items-center justify-between gap-8">
+      <div className="container mx-auto px-4">
+        <div className="flex h-16 items-center justify-between gap-4">
           {/* Logo and Company Name */}
           <Link href="/" className="flex items-center space-x-2.5 flex-shrink-0">
             {/* Logo */}
@@ -72,13 +84,13 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6 flex-1 justify-center">
+          <nav className="hidden lg:flex items-center space-x-4 flex-1 justify-center">
             {navigation.map((item) => (
               <div key={item.name} className="relative group">
                 <Link
                   href={item.href}
                   className={cn(
-                    "flex items-center space-x-1 px-2 py-2 text-sm font-medium transition-colors whitespace-nowrap",
+                    "flex items-center space-x-1 px-1 py-2 text-sm font-medium transition-colors whitespace-nowrap",
                     pathname === item.href
                       ? "text-blue-600 font-semibold"
                       : "text-gray-700 hover:text-blue-600"
@@ -115,12 +127,12 @@ export function Header() {
           </nav>
 
           {/* Right side actions */}
-          <div className="flex items-center space-x-3 flex-shrink-0">
+          <div className="flex items-center space-x-2 flex-shrink-0">
             {/* Search Bar */}
             <div className="hidden md:flex items-center">
               <PlayerSearch 
                 placeholder="Search Players"
-                className="w-48"
+                className="w-40"
               />
             </div>
 
@@ -151,7 +163,7 @@ export function Header() {
             </div>
 
             <Link href="/clubs/padel-banten/admin/login">
-              <Button className="bg-red-600 hover:bg-red-700 text-white font-medium">
+              <Button className="bg-red-600 hover:bg-red-700 text-white font-medium text-sm px-3 py-1.5">
                 Club Login
               </Button>
             </Link>

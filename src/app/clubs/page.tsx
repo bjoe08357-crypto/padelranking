@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { getAllClubs, getActiveClubs, searchClubs, getClubsByRegion } from "@/lib/data/clubs";
+import { getActiveClubs } from "@/lib/data/clubs";
 import { PlayerSearch } from "@/components/ui/player-search";
 
 export const metadata: Metadata = {
@@ -262,7 +262,7 @@ export default function ClubsPage() {
                 Apply as Club
               </Link>
               <Link 
-                href="/membership" 
+                href="/about" 
                 className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
               >
                 Learn More

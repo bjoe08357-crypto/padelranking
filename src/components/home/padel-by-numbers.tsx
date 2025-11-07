@@ -49,7 +49,7 @@ export function PadelByNumbers() {
             Indonesia Padel by Numbers
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Real-time statistics showcasing the growth and vitality of Indonesia's padel community
+            Real-time statistics showcasing the growth and vitality of Indonesia&apos;s padel community
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export function PadelByNumbers() {
           <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Category Distribution</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {categoryData.map((item, index) => (
+              {categoryData.map((item) => (
                 <div key={item.name} className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 text-center hover:shadow-md transition-all hover:-translate-y-1 duration-300 border border-blue-200">
                   <div className="text-5xl mb-3">{item.icon}</div>
                   <div className="text-3xl font-bold text-gray-900 mb-2">{item.value}</div>

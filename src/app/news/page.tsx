@@ -26,7 +26,7 @@ export default function NewsPage() {
               News & Updates
             </h1>
             <p className="text-xl text-blue-100">
-              Stay updated with the latest news, tournaments, and achievements from Indonesia's padel community
+              Stay updated with the latest news, tournaments, and achievements from Indonesia&apos;s padel community
             </p>
           </div>
         </div>

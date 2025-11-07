@@ -64,7 +64,12 @@ export async function GET(request: NextRequest) {
     }
 
     // Get tournaments list
-    const where: any = {};
+    const where: {
+      status?: string;
+      level?: string;
+      category?: string;
+      regionId?: string;
+    } = {};
 
     if (status) {
       where.status = status;

@@ -18,17 +18,23 @@ export default function AdminLoginPage() {
     setError("");
 
     try {
+      // Trim inputs to remove any whitespace
+      const trimmedEmail = email.trim().toLowerCase();
+      const trimmedPassword = password.trim();
+
       // Simple admin authentication for demo
-      if (email === "admin@pbpi.or.id" && password === "admin2024") {
+      if (trimmedEmail === "admin@pbpi.or.id" && trimmedPassword === "admin2024") {
         sessionStorage.setItem('adminUser', JSON.stringify({
-          email: email,
+          email: trimmedEmail,
           role: 'SUPER_ADMIN'
         }));
-        router.push('/admin/dashboard');
+        // Use window.location for more reliable navigation
+        window.location.href = '/admin/dashboard';
       } else {
-        setError("Invalid admin credentials");
+        setError("Invalid admin credentials. Please check your email and password.");
       }
-    } catch (err) {
+    } catch {
+      console.error("Login error");
       setError("Login failed. Please try again.");
     } finally {
       setLoading(false);

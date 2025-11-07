@@ -18,7 +18,19 @@ export async function GET(request: NextRequest) {
     const skip = (page - 1) * limit;
 
     // Build where clause
-    const where: any = {
+    const where: {
+      season: number;
+      player?: {
+        regionId?: string;
+        clubId?: string;
+        OR?: Array<{
+          firstName?: { contains: string; mode: string };
+          lastName?: { contains: string; mode: string };
+          fullName?: { contains: string; mode: string };
+        }>;
+      };
+      category?: string;
+    } = {
       season,
     };
 

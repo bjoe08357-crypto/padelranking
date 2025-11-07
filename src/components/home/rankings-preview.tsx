@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { getPlayerImageUrl, generatePlayerSlug } from "@/lib/utils";
 import { TrendingUp, TrendingDown, Minus, ArrowRight, Medal } from "lucide-react";
@@ -141,7 +141,7 @@ export function RankingsPreview() {
                   </tr>
                 </thead>
                 <tbody>
-                  {rankingsPreview.map((player, index) => (
+                  {rankingsPreview.map((player) => (
                     <tr key={player.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors group">
                       <td className="px-6 py-4">
                         <div className="flex items-center space-x-2">

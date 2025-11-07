@@ -111,12 +111,31 @@ export async function POST(request: NextRequest) {
   }
 }
 
-async function calculatePlayerPoints(player: any, config: any): Promise<number> {
+interface PlayerWithResults {
+  results: Array<{
+    pointsEarned: number;
+    playedAt: Date;
+    tournament: {
+      level: string;
+    };
+  }>;
+  category: string;
+}
+
+interface RankingConfig {
+  bestN: number;
+  levelMultipliers: Record<string, number>;
+  categoryMultipliers?: Record<string, number>;
+  decayMode: string;
+  decayLambda: number;
+}
+
+async function calculatePlayerPoints(player: PlayerWithResults, config: RankingConfig): Promise<number> {
   let totalPoints = 0;
   
   // Sort results by points earned (best tournaments first)
   const sortedResults = player.results
-    .sort((a: any, b: any) => b.pointsEarned - a.pointsEarned)
+    .sort((a, b) => b.pointsEarned - a.pointsEarned)
     .slice(0, config.bestN);
 
   for (const result of sortedResults) {

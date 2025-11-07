@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Search, Download, Filter, ChevronDown, Trophy, TrendingUp, TrendingDown, Minus, Star } from "lucide-react";
+import { Search, Download, ChevronDown, Trophy, TrendingUp, TrendingDown, Minus, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getPlayerImageUrl, generatePlayerSlug } from "@/lib/utils";
@@ -201,7 +201,7 @@ export default function RankingsPage() {
               Official Padel <span className="text-red-500">Rankings</span>
             </h1>
             <p className="text-xl text-blue-50 max-w-2xl mx-auto">
-              Indonesia's Premier Padel Circuit Rankings
+              Indonesia&apos;s Premier Padel Circuit Rankings
             </p>
           </div>
 
@@ -225,7 +225,7 @@ export default function RankingsPage() {
               Top 3 Indonesian Padel Champions
             </h2>
             <p className="text-gray-600">
-              Meet the elite athletes leading Indonesia's padel revolution
+              Meet the elite athletes leading Indonesia&apos;s padel revolution
             </p>
           </div>
 
@@ -362,7 +362,7 @@ export default function RankingsPage() {
         <div className="container mx-auto px-4">
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">Complete Rankings</h2>
-            <p className="text-gray-600">View and search through Indonesia's ranked padel players</p>
+            <p className="text-gray-600">View and search through Indonesia&apos;s ranked padel players</p>
           </div>
 
           {/* Filters and Search */}
@@ -662,7 +662,7 @@ export default function RankingsPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">Rankings Insights</h2>
             <p className="text-gray-600">
-              Comprehensive statistics and trends from Indonesia's padel community
+              Comprehensive statistics and trends from Indonesia&apos;s padel community
             </p>
           </div>
 
@@ -828,14 +828,9 @@ export default function RankingsPage() {
             Ready to Join the Rankings?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Start your padel journey and compete with Indonesia's best. Participate in official tournaments and begin climbing the official rankings.
+            Start your padel journey and compete with Indonesia&apos;s best. Participate in official tournaments and begin climbing the official rankings.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/membership">
-              <Button size="sm" className="bg-white text-blue-600 hover:bg-blue-50 font-semibold text-sm px-4 py-2">
-                📝 Register Now
-              </Button>
-            </Link>
             <Link href="/tournaments">
               <Button size="sm" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold text-sm px-4 py-2 bg-transparent">
                 📅 View Tournaments

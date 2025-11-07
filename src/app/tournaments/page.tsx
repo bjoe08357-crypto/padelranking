@@ -96,7 +96,7 @@ export default function TournamentsPage() {
               Indonesian Padel Tournaments
             </h1>
             <p className="text-lg text-blue-100 mb-8 max-w-2xl">
-              Compete in official PBPI tournaments, earn ranking points, and showcase your skills against Indonesia's best players.
+              Compete in official PBPI tournaments, earn ranking points, and showcase your skills against Indonesia&apos;s best players.
             </p>
             
             {/* Stats */}
@@ -147,7 +147,7 @@ export default function TournamentsPage() {
         <div className="container mx-auto px-4">
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">Featured Tournaments</h2>
-            <p className="text-gray-600">Don't miss these premier padel events</p>
+            <p className="text-gray-600">Don&apos;t miss these premier padel events</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -275,14 +275,9 @@ export default function TournamentsPage() {
             Ready to Compete?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Join Indonesia's growing padel community and test your skills in official tournaments
+            Join Indonesia&apos;s growing padel community and test your skills in official tournaments
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/membership">
-              <Button size="sm" className="bg-white text-blue-600 hover:bg-blue-50 font-semibold text-sm px-4 py-2">
-                Become a Member
-              </Button>
-            </Link>
             <Link href="/about">
               <Button size="sm" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold text-sm px-4 py-2 bg-transparent">
                 Learn More

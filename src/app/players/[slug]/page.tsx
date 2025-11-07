@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { 
   Trophy, 
   TrendingUp, 
@@ -120,7 +119,7 @@ export async function generateStaticParams() {
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+  await params;
   
   return {
     title: `${mockPlayer.name} | Player Profile | Indonesia Padel Rankings`,
@@ -129,7 +128,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function PlayerProfilePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+  await params;
   
   // For now, return the mock player for any slug
   const player = mockPlayer;

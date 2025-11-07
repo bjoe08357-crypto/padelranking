@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { getClubById } from "@/lib/data/clubs";
+import { getClubById, Club } from "@/lib/data/clubs";
 
 interface ClubAdmin {
   id: string;
@@ -14,7 +13,7 @@ interface ClubAdmin {
 
 export default function ClubAdminDashboard() {
   const [clubAdmin, setClubAdmin] = useState<ClubAdmin | null>(null);
-  const [club, setClub] = useState<any>(null);
+  const [club, setClub] = useState<Club | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
