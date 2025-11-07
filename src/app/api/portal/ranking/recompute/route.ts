@@ -30,6 +30,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Cast Prisma JSON fields to proper types
+    const rankingConfig: RankingConfig = {
+      bestN: config.bestN,
+      levelMultipliers: config.levelMultipliers as Record<string, number>,
+      categoryMultipliers: config.categoryMultipliers as Record<string, number> | undefined,
+      decayMode: config.decayMode,
+      decayLambda: config.decayLambda,
+    };
+
     // Get all players
     const players = await prisma.player.findMany({
       include: {
@@ -51,7 +60,7 @@ export async function POST(request: NextRequest) {
 
     for (const player of players) {
       // Calculate ranking points based on configuration
-      const points = await calculatePlayerPoints(player, config);
+      const points = await calculatePlayerPoints(player, rankingConfig);
       
       rankings.push({
         playerId: player.id,
