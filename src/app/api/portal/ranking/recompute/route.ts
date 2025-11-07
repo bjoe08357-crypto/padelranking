@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
       }
     });
 
-    const rankings = [];
+    const rankings: RankingData[] = [];
 
     for (const player of players) {
       // Calculate ranking points based on configuration
@@ -137,6 +137,15 @@ interface RankingConfig {
   categoryMultipliers?: Record<string, number>;
   decayMode: string;
   decayLambda: number;
+}
+
+interface RankingData {
+  playerId: string;
+  season: number;
+  category: string;
+  points: number;
+  asOf: Date;
+  position?: number;
 }
 
 async function calculatePlayerPoints(player: PlayerWithResults, config: RankingConfig): Promise<number> {
