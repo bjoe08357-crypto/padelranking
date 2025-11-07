@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { getAllClubs } from "@/lib/data/clubs";
 
 interface AdminUser {
   email: string;
