@@ -30,13 +30,19 @@ export async function POST(request: NextRequest) {
     //   return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     // }
 
-    const config = await prisma.rankingConfig.upsert({
-      where: {
-        season: validatedData.season
-      },
-      update: validatedData,
-      create: validatedData
+    // Find existing config by season
+    const existingConfig = await prisma.rankingConfig.findFirst({
+      where: { season: validatedData.season }
     });
+
+    const config = existingConfig
+      ? await prisma.rankingConfig.update({
+          where: { id: existingConfig.id },
+          data: validatedData
+        })
+      : await prisma.rankingConfig.create({
+          data: validatedData
+        });
 
     return NextResponse.json({ config });
   } catch (error) {
@@ -60,7 +66,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const season = parseInt(searchParams.get("season") || new Date().getFullYear().toString());
 
-    const config = await prisma.rankingConfig.findUnique({
+    const config = await prisma.rankingConfig.findFirst({
       where: { season }
     });
 
