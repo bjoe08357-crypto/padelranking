@@ -6,12 +6,14 @@ import { RankingsPreview } from "@/components/home/rankings-preview";
 import { UpcomingTournaments } from "@/components/home/upcoming-tournaments";
 import { ClubPortalTeaser } from "@/components/home/club-portal-teaser";
 import { HeroIntroSection } from "@/components/home/hero-intro";
+import { IndonesiaRegionsMap } from "@/components/home/indonesia-regions-map";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       <HeroSection />
       <HeroIntroSection />
+      <IndonesiaRegionsMap />
       <PadelByNumbers />
       <NewsSection />
       <TopPlayersPodium />
