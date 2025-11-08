@@ -20,7 +20,7 @@ export function HeroSection() {
       }}
     >
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/70 to-blue-700/70"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/40 to-blue-700/40"></div>
       
       {/* Decorative Circles */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
