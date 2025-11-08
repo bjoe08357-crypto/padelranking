@@ -13,15 +13,13 @@ export function HeroSection() {
     <section 
       className="relative min-h-[70vh] overflow-hidden" 
       style={{
-        // Try project image first; if missing, fall back to an existing hero asset
-        backgroundImage: 'url(/documents/padel/3.jpeg), url(/hero-padel-action.png)',
+        backgroundImage: 'url(/documents/padel/homebannernew.jpeg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
       }}
     >
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-black/20"></div>
+      {/* No overlay to ensure the image displays as-is */}
       
       {/* Decorative Circles */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
