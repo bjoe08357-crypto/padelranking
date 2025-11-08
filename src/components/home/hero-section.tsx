@@ -11,7 +11,7 @@ const stats = [
 export function HeroSection() {
   return (
     <section 
-      className="relative min-h-[70vh] bg-blue-600 overflow-hidden" 
+      className="relative min-h-[70vh] overflow-hidden" 
       style={{
         backgroundImage: 'url(/documents/padel/3.jpeg)',
         backgroundSize: 'cover',
@@ -20,7 +20,7 @@ export function HeroSection() {
       }}
     >
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/40 to-blue-700/40"></div>
+      <div className="absolute inset-0 bg-black/40"></div>
       
       {/* Decorative Circles */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
